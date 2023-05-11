@@ -1,13 +1,14 @@
 #pragma once
 #include "constants.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <vector>
 #include "text.h"
 
-vector<SDL_Rect> cBox[3];
-vector<string> cContent[3];
-string fontHeader = "assets/OpenSans-ExtraBold.TTF";
-string fontContent = "assets/OpenSans-Regular.TTF";
+
+std::vector<SDL_Rect> cBox[3];
+std::vector<std::string> cContent[3];
+std::string fontHeader = "assets/Lmao.TTF";
+std::string fontContent = "assets/Lmao.TTF";
 void initMenuChoice()
 {
     //start menu
@@ -33,9 +34,9 @@ void initMenuChoice()
     cContent[2].push_back("Quit");
 
 }
-void drawMenu(SDL_Renderer* renderer, vector<SDL_Rect> choiceBoxes, vector<string> choiceContent, int choice)
+void drawMenu(SDL_Renderer* renderer, std::vector<SDL_Rect> choiceBoxes, std::vector<std::string> choiceContent, int choice)
 {
-    drawText(renderer,0,0,30,to_string(choice));
+    drawText(renderer,0,0,30,std::to_string(choice));
     int choiceNum = choiceBoxes.size();
     for(int i=0;i<choiceNum;i++)
     {
@@ -54,7 +55,7 @@ void drawMenuStart(SDL_Renderer* renderer,int menuChoice)
 {
     SDL_SetRenderDrawColor(renderer,0,0,0,255);
     SDL_RenderClear(renderer);
-    drawText(renderer,420,150,67,"Cosmic Nose");
+    drawText(renderer,350,130,100,"Dungeon Runner");
     drawMenu(renderer,cBox[0],cContent[0],menuChoice);
 }
 void drawMenuPause(SDL_Renderer* renderer,int menuChoice)
@@ -76,7 +77,7 @@ void drawMenuOver(SDL_Renderer* renderer,bool win,int menuChoice)
 {
     SDL_SetRenderDrawColor(renderer,0,0,0,255);
     SDL_RenderClear(renderer);
-    if(win) drawText(renderer,490,150,67,"You Win",{82, 113, 255, 255});
-    else drawText(renderer,490,150,67,"You Died",{255, 0, 0, 255});
+    if(win) drawText(renderer,480,150,100,"You Win",{82, 113, 255, 255});
+    else drawText(renderer,480,150,100,"You Died",{255, 0, 0, 255});
     drawMenu(renderer,cBox[2],cContent[2],menuChoice);
 }

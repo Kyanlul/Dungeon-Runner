@@ -1,4 +1,5 @@
 #pragma once
+
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 const int FPS = 60;
@@ -12,16 +13,16 @@ const int nCol = SCREEN_WIDTH/tSize;
 
 //player
 const int pVel=9;
-const int pSize=15;
-const int maxHP=3;
+const int pSize=20;
+const int maxHP=4;
 const int playerSpawnX = SCREEN_WIDTH/2;
 const int playerSpawnY = SCREEN_HEIGHT-40-pSize;
 
 //boss
-const int bossMaxHP = 1000;
+const int bossMaxHP = 1200;
 const int bossSpawnX = SCREEN_WIDTH/2;
 const int bossSpawnY = 40;
 //bullet
-const int bSize=10;
+const int bSize=3;
 const int maxBulletNumber = 700;
 const int bVel=11;

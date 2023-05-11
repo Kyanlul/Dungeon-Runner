@@ -1,6 +1,8 @@
 #pragma once
-#include <SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include "constants.h"
+
+
 
 Mix_Music *bgMusic;
 Mix_Chunk *pShoot, *pHit, *bHit, *bShoot, *menuSFX;
@@ -34,8 +36,8 @@ void playSFX(Mix_Chunk *sfx) {
 }
 
 void changeVolume() {
-    volume=min(max(0,volume),128);
-    cout<<volume<<endl;
+    volume=std::min(std::max(0,volume),128);
+    std::cout<<volume<<std::endl;
     Mix_VolumeMusic(volume);
     Mix_VolumeChunk(menuSFX,volume);
 }

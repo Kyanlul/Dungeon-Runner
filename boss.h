@@ -3,15 +3,11 @@
 #include "gameTexture.h"
 #include "move_and_collision.h"
 #include "bullet.h"
-using namespace std;
-
 
 struct boss
 {
     int x,y;
     int hp;
-    int phase;//0: norm, 1: 50% hp, 2: 25% hp
-    int phaseUpdated = 0;
     int velX = 5,velY = 5;
     int prevShootTime = 0;
     const int eid = 1;
@@ -40,7 +36,7 @@ void boss::spawn(int x = bossSpawnX, int y = bossSpawnY, int hp = bossMaxHP)
     velX = velY = 5;
     phase = phaseUpdated = 0;
 }
-pair<int,int> firePoint[12] = {{15,15}, {150,0}, {290,15}, {30,240}, {270,240},
+std::pair<int,int> firePoint[12] = {{15,15}, {150,0}, {290,15}, {30,240}, {270,240},
                               {150,240}, {95,225}, {205,225}, {115,230}, {185,230}, {290,160}, {15,160}};
 void boss::shoot()
 {
@@ -73,8 +69,8 @@ void boss::move()
     y+=velY;
     if(x < 40 || x + width > SCREEN_WIDTH-40) velX=-velX;
     if(y < 40 || y + height > SCREEN_HEIGHT-40) velY=-velY;
-    x=min(SCREEN_WIDTH-40,max(40,x));
-    y=min(SCREEN_HEIGHT-40,max(40,y));
+    x= std::min(SCREEN_WIDTH-40,std::max(40,x));
+    y= std::min(SCREEN_HEIGHT-40,std::max(40,y));
 
     //std::cout<<x<<' '<<y<<' '<<velX<<' '<<velY<<'\n';
 }

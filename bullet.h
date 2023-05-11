@@ -21,6 +21,9 @@ struct bullet
     void move();
 }bulletList[maxBulletNumber];
 
+int phase;//0: norm, 1: 50% hp, 2: 25% hp
+int phaseUpdated = 0;
+
 void bullet::init(int x,int y,double velX,double velY,bool fromPlayer = 1)
 {
     this->x=x;
@@ -30,7 +33,7 @@ void bullet::init(int x,int y,double velX,double velY,bool fromPlayer = 1)
     this->fromPlayer = fromPlayer;
     willHit = 0;
     active=true;
-    if(fromPlayer) size = 3;
+    if(fromPlayer) size = 10;
     else size = 30;
 }
 void bullet::move()
@@ -99,10 +102,12 @@ void renderBullets(SDL_Renderer* renderer)
             // SDL_RenderFillRect(renderer,new SDL_Rect({bulletList[i].x,bulletList[i].y,bulletList[i].size,bulletList[i].size}));
             if(bulletList[i].fromPlayer)
             {
-                SDL_SetRenderDrawColor(renderer,255,255,255,255);
-                SDL_RenderFillRect(renderer,new SDL_Rect({bulletList[i].x,bulletList[i].y,bulletList[i].size,bulletList[i].size}));
+                pBullet.render(renderer, NULL, bulletList[i].x, bulletList[i].y, bulletList[i].size, bulletList[i].size);
             }
             else
-                bossBulletTexture.render(renderer,NULL,bulletList[i].x,bulletList[i].y,bulletList[i].size,bulletList[i].size);
+            {
+                if (phase == 1 || phase == 0) bossBulletTexture.render(renderer, NULL, bulletList[i].x, bulletList[i].y, bulletList[i].size, bulletList[i].size);
+                else if (phase == 2) rageBossBullet.render(renderer, NULL, bulletList[i].x, bulletList[i].y, bulletList[i].size, bulletList[i].size);
+            }
         }   
 }

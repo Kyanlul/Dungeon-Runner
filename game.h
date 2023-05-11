@@ -1,9 +1,10 @@
 #pragma once
+
 #include "constants.h"
 #include <stdlib.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include "terrain.h"
 #include "SDLcore.h"
 #include "gameTexture.h"
@@ -13,7 +14,6 @@
 #include "hud.h"
 #include "text.h"
 #include "sound.h"
-using namespace std;
 
 
 class GAME
@@ -58,7 +58,7 @@ private:
 };
 GAME::GAME()
 {
-    if (!initSDL(window, renderer, "Dungeon"));
+    if (!initSDL(window, renderer))
     {
         std::cout<<"SDL Init Error"<<std::endl;
         return ;
@@ -279,7 +279,7 @@ void GAME::render()
     SDL_RenderPresent(renderer);
 
     //FPS
-    int frameTime = max(int(SDL_GetTicks() - startTime),1);
+    int frameTime = std::max(int(SDL_GetTicks() - startTime),1);
     //cout<<1000/frameTime<<'\n';
     if(frameTime < 1000/FPS)
         SDL_Delay(1000/FPS - frameTime);
@@ -288,10 +288,10 @@ void GAME::render()
 void GAME::debug()
 {
     //print states
-    cout<<"isStartMenu: "<<isStartMenu<<endl;
-    cout<<"inGame: "<<inGame<<endl;
-    cout<<"isGameOver: "<<isGameOver<<endl;
-    cout<<"quit: "<<quit<<endl;
-    cout<<"pause: "<<paused<<endl;
-    cout<<SDL_GetError()<<'\n';
+    std::cout<<"isStartMenu: "<<isStartMenu<<std::endl;
+    std::cout<<"inGame: "<<inGame<<std::endl;
+    std::cout<<"isGameOver: "<<isGameOver<<std::endl;
+    std::cout<<"quit: "<<quit<<std::endl;
+    std::cout<<"pause: "<<paused<<std::endl;
+    std::cout<<SDL_GetError()<<'\n';
 }

@@ -133,29 +133,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Project-G2-master\boss.h" />
-    <ClInclude Include="..\Project-G2-master\bullet.h" />
-    <ClInclude Include="..\Project-G2-master\constants.h" />
-    <ClInclude Include="..\Project-G2-master\game.h" />
-    <ClInclude Include="..\Project-G2-master\gameTexture.h" />
-    <ClInclude Include="..\Project-G2-master\hud.h" />
-    <ClInclude Include="..\Project-G2-master\menu.h" />
-    <ClInclude Include="..\Project-G2-master\move_and_collision.h" />
-    <ClInclude Include="..\Project-G2-master\player.h" />
-    <ClInclude Include="..\Project-G2-master\SDLcore.h" />
-    <ClInclude Include="..\Project-G2-master\sound.h" />
-    <ClInclude Include="..\Project-G2-master\terrain.h" />
-    <ClInclude Include="..\Project-G2-master\text.h" />
-    <ClInclude Include="..\Project-G2-master\texture.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Project-G2-master\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="assets\Character_sheet.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="boss.h" />
+    <ClInclude Include="bullet.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameTexture.h" />
+    <ClInclude Include="hud.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="move_and_collision.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="SDLcore.h" />
+    <ClInclude Include="sound.h" />
+    <ClInclude Include="terrain.h" />
+    <ClInclude Include="text.h" />
+    <ClInclude Include="texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

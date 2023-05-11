@@ -2,28 +2,28 @@
 #include "constants.h"
 #include "texture.h"
 #include <string>
-#include <SDL.h>
-#include <SDL_ttf.h>
-using namespace std;
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
-string defaultFont = "assets/OpenSans-ExtraBold.TTF";
+
+std::string defaultFont = "assets/Lmao.ttf";
 struct textTexture
 {
-    textTexture(int x,int y,int size,string str,string fontPath,SDL_Color color);
+    textTexture(int x,int y,int size,std::string str,std::string fontPath,SDL_Color color);
     ~textTexture();
     void render(SDL_Renderer *renderer);
     void initWH();
     int x,y;
     int size;
     int w,h;
-    string str;
-    TTF_Font* font;
+    std::string str;
     SDL_Color color;
-    string fontPath;
+    TTF_Font* font;
+    std::string fontPath;
     SDL_Texture* texture;
 };
 
-textTexture::textTexture(int x,int y,int size,string str,string fontPath = defaultFont,SDL_Color color = {255,255,255,255})
+textTexture::textTexture(int x,int y,int size,std::string str,std::string fontPath = defaultFont,SDL_Color color = {255,255,255,255})
 {
     this->x=x;
     this->y=y;
@@ -44,13 +44,13 @@ textTexture::~textTexture()
 }
 void textTexture::initWH()
 {
-    TTF_SizeText(font,str.c_str(), &w, &h);
+    TTF_SizeText(font,str.c_str(),&w,&h);
 }
 void textTexture::render(SDL_Renderer *renderer)
 {
     if(font==NULL) 
     {
-        cout<<"Font not found!"<<'\n';
+        std::cout<<"Font not found!"<<'\n';
         return ;
     }
     //std::cout<<"Rendering text..."<<str<<'\n';
@@ -61,12 +61,12 @@ void textTexture::render(SDL_Renderer *renderer)
     SDL_FreeSurface(surface);
 }
 
-void drawText(SDL_Renderer *renderer, int x, int y, int size, string s, SDL_Color color = {255,255,255,255}, string font = defaultFont)// boxSize for allign
+void drawText(SDL_Renderer *renderer, int x, int y, int size, std::string s, SDL_Color color = {255,255,255,255}, std::string font = defaultFont)// boxSize for allign
 {
     textTexture t(x,y,size,s,font,color);
     t.render(renderer);
 }
-void drawTextCenter(SDL_Renderer *renderer, int x, int y, int size, string s, int boxWidth, int boxHeight, SDL_Color color = {255,255,255,255}, string font = defaultFont)// boxSize for allign
+void drawTextCenter(SDL_Renderer *renderer, int x, int y, int size, std::string s, int boxWidth, int boxHeight, SDL_Color color = {255,255,255,255}, std::string font = defaultFont)// boxSize for allign
 {
     textTexture t(x,y,size,s,font,color);
     t.x+=(boxWidth-t.w)/2;

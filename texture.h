@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+
 
 
 class LTexture
@@ -14,7 +15,7 @@ class LTexture
        void setColor( Uint8 red , Uint8 green, Uint8 blue );
        void setBlendMode( SDL_BlendMode blending );
        void setAlpha( Uint8 alpha );
-       void render(SDL_Renderer* renderer, SDL_Rect *source, int x, int y, int w, int h, bool direction);
+       void render(SDL_Renderer* renderer, SDL_Rect *source, int x, int y, int w, int h, bool dir);
        int getWidth();
        int getHeight();
      private:
@@ -89,13 +90,13 @@ void LTexture::setColor( Uint8 red, Uint8 green, Uint8 blue )
     SDL_SetTextureColorMod( mTexture, red, green, blue );
 }
 
-void LTexture::render(SDL_Renderer* renderer, SDL_Rect *source, int x = 0, int y = 0, int w=-1, int h=-1, bool direction = 1)
+void LTexture::render(SDL_Renderer* renderer, SDL_Rect *source, int x = 0, int y = 0, int w=-1, int h=-1, bool dir=1)
 {
     SDL_Rect dest = { x, y, w, h };
     if(w==-1)
         dest.w=mWidth,
         dest.h=mHeight;
-    int errorCode = SDL_RenderCopyEx(renderer,mTexture,source,&dest,0,NULL,direction?SDL_FLIP_NONE:SDL_FLIP_HORIZONTAL);
+    int errorCode = SDL_RenderCopyEx(renderer,mTexture,source,&dest,0,NULL,dir?SDL_FLIP_NONE:SDL_FLIP_HORIZONTAL);
     if(errorCode!=0)
         std::cout<<"Render copy error: "<<SDL_GetError()<<'\n';
         

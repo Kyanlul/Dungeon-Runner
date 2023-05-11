@@ -2,10 +2,11 @@
 #include "constants.h"
 #include "terrain.h"
 
+
 bool checkCollideTerrainX(int x,int y,int objectSize,int& txc)
 {
     int tx,ty = y/tSize;
-    int maxPixel = min (x+objectSize,SCREEN_WIDTH);
+    int maxPixel = std::min(x+objectSize,SCREEN_WIDTH);
     while(x <= maxPixel)
     {
         tx = x/tSize;
@@ -22,7 +23,7 @@ bool checkCollideTerrainX(int x,int y,int objectSize,int& txc)
 bool checkCollideTerrainY(int x,int y,int objectSize,int& tyc)
 {
     int tx = x/tSize,ty;
-    int maxPixel = min(y + objectSize, SCREEN_HEIGHT);
+    int maxPixel = std::min(y+objectSize,SCREEN_HEIGHT);
     while(y <= maxPixel)
     {
         ty = y/tSize;
@@ -36,7 +37,7 @@ bool checkCollideTerrainY(int x,int y,int objectSize,int& tyc)
     }
     return 0;
 }
-void nextPos(int &x,int &y,double velX,double velY,int objectSize,bool &hitWall,bool &hitEnemy)
+void nextPos(int &x,int &y,double velX ,double velY,int objectSize,bool &hitWall,bool &hitEnemy)
 {
     int tx,ty;
     if(velX < 0) //go left
@@ -67,8 +68,8 @@ void nextPos(int &x,int &y,double velX,double velY,int objectSize,bool &hitWall,
             hitWall = 1;
         else y += velY;
     }
-    x=min(max(x,0),SCREEN_WIDTH-pSize);
-    y=min(max(y,0),SCREEN_HEIGHT-pSize);
+    x= std::min(std::max(x,0),SCREEN_WIDTH-pSize);
+    y= std::min(std::max(y,0),SCREEN_HEIGHT-pSize);
 }
 
 struct entity

@@ -1,20 +1,20 @@
 #pragma once
 #include <iostream>
-#include <SDL.h>
-#include <SDL_ttf.h>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 #include "constants.h"
 
 
-bool initSDL(SDL_Window* &window, SDL_Renderer* &renderer, std::string WINDOW_TITLE)
+bool initSDL(SDL_Window* &window, SDL_Renderer* &renderer, std::string WINDOW_TITLE = "GAME")
 {
-    WINDOW_TITLE = "Dungeon";
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
         std::cout<<"SDL_Init Error: "<<SDL_GetError()<<std::endl;
         return 0;
     }
+
     window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (window == nullptr)
     {

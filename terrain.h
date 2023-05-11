@@ -45,7 +45,7 @@ void terrain::render(SDL_Renderer* renderer)
 {
     tile.render(renderer,&tType[type],x,y);
 }*/
-SDL_Rect tType[3] = {{0,0,40,40},{40,0,40,40},{80,0,40,40}};
+SDL_Rect tType[4] = { {0,0,40,40},{40,0,40,40},{80,0,40,40},{120,0,40,40} };
 void renderTerrain(SDL_Renderer* renderer)
 {
     for(int i=0;i<nRow;i++)
