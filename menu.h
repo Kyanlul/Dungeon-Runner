@@ -1,6 +1,6 @@
 #pragma once
 #include "constants.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <vector>
 #include "text.h"
 

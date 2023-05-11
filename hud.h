@@ -1,6 +1,6 @@
 #pragma once
 #include "constants.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "gameTexture.h"
 #include "text.h"
 
