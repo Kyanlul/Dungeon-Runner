@@ -9,3 +9,4 @@ I.How to play:
 - You can change game volume by using "+" or "-" button.
 II.Win condition:
 - Dogde the boss bullets and kill its with your aiming and dodging skill.
+- The lower HP the boss got, the more aggressive he will be, so becareful, and good luck!
