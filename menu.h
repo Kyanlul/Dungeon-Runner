@@ -19,11 +19,11 @@ void initMenuChoice()
     //pause menu
     cBox[1].push_back({550,240,180,50});
     cBox[1].push_back({550,240+50+65,180,50});
-    cBox[1].push_back({550,240+2*50+2*65,180,50});
-    cBox[1].push_back({550,240+3*50+3*65,180,50});
+    //cBox[1].push_back({550,240+2*50+2*65,180,50});
+    cBox[1].push_back({ 550,240 + 2 * 50 + 2 * 65,180,50 });
     cContent[1].push_back("Resume");
     cContent[1].push_back("Music");
-    cContent[1].push_back("Sound");
+    //cContent[1].push_back("Sound");
     cContent[1].push_back("Quit");
     //over menu
     cBox[2].push_back({550,300,180,50});
@@ -67,7 +67,7 @@ void drawMenuPause(SDL_Renderer* renderer,int menuChoice)
     SDL_SetRenderTarget(renderer,faded);
     SDL_SetRenderDrawColor(renderer,0,0,0,255);
     SDL_RenderClear(renderer);
-    drawText(renderer,515,95,67,"Paused");
+    drawText(renderer,510,95,100,"Paused");
     drawMenu(renderer,cBox[1],cContent[1],menuChoice);
     SDL_SetRenderTarget(renderer,NULL);
     SDL_RenderCopy(renderer,faded,NULL,NULL);

@@ -12,8 +12,8 @@ const int nRow = SCREEN_HEIGHT/tSize;
 const int nCol = SCREEN_WIDTH/tSize;
 
 //player
-const int pVel=9;
-const int pSize=20;
+const int pVel= 9;
+const int pSize= 25;
 const int maxHP=4;
 const int playerSpawnX = SCREEN_WIDTH/2;
 const int playerSpawnY = SCREEN_HEIGHT-40-pSize;

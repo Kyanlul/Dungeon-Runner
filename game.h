@@ -162,9 +162,9 @@ void GAME::handleEvent(SDL_Event &e)
     }
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
     {
-        if(e.key.keysym.sym == SDLK_KP_PLUS)
+        if(e.key.keysym.sym == SDLK_u)
             volume += 10;
-        else if(e.key.keysym.sym == SDLK_KP_MINUS)
+        else if(e.key.keysym.sym == SDLK_i)
             volume-=10;
         changeVolume();
     }

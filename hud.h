@@ -28,7 +28,7 @@ void drawPlayerHealth(SDL_Renderer* renderer, int HP)
 
 void drawBossHealth(SDL_Renderer* renderer,int HP)
 {
-    drawText(renderer,1100,80,30,std::to_string(HP));
+    drawText(renderer,1150,80,30,std::to_string(HP));
     //1160 160 1160 640
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     SDL_RenderDrawRect(renderer,new SDL_Rect({1160,160,40,480}));
